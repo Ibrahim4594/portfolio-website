@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #00ff00;
+  --accent: #00ff00;
+  --accent-secondary: #ffffff;
+  --terminal-green: #00ff00;
+  --matrix-green: #0f0;
+  --glow-intensity: 0 0 20px rgba(0, 255, 0, 0.5);
 }
 
 @theme inline {
@@ -12,15 +17,477 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Courier New', var(--font-geist-mono), monospace;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* CRT Screen Effect - Disabled */
+/* Enhanced Scanline - Disabled */
+
+/* Hacker Section Backgrounds */
+.hacker-section {
+  background: transparent;
+  position: relative;
+  border-top: 1px solid rgba(0, 255, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.terminal-section {
+  background: transparent;
+  position: relative;
+}
+
+/* Grid Background - Disabled */
+.grid-bg {
+  background-image: none;
+}
+
+/* Terminal Text Effect */
+.terminal-text {
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+/* Glowing Green Effect */
+.glow-green {
+  box-shadow:
+    0 0 10px rgba(0, 255, 0, 0.5),
+    0 0 20px rgba(0, 255, 0, 0.3),
+    0 0 30px rgba(0, 255, 0, 0.2);
+}
+
+.glow-green-text {
+  text-shadow:
+    0 0 5px rgba(0, 255, 0, 0.8),
+    0 0 10px rgba(0, 255, 0, 0.6),
+    0 0 15px rgba(0, 255, 0, 0.4),
+    0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+/* Hacker Card */
+.hacker-card {
+  background: rgba(0, 255, 0, 0.03);
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  border-radius: 6px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    inset 0 0 30px rgba(0, 255, 0, 0.08),
+    0 4px 6px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.hacker-card:hover {
+  background: rgba(0, 255, 0, 0.08);
+  border-color: rgba(0, 255, 0, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    inset 0 0 30px rgba(0, 255, 0, 0.15),
+    0 8px 20px rgba(0, 255, 0, 0.4),
+    0 0 40px rgba(0, 255, 0, 0.2);
+}
+
+/* Terminal Border */
+.terminal-border {
+  border: 2px solid #00ff00;
+  box-shadow:
+    inset 0 0 10px rgba(0, 255, 0, 0.2),
+    0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid #00ff00;
+  white-space: nowrap;
+  animation:
+    typing 3s steps(40, end),
+    blink 0.75s step-end infinite;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px #00ff00, -2px -2px #fff;
+  }
+  25% {
+    text-shadow: -2px -2px #00ff00, 2px 2px #fff;
+  }
+  50% {
+    text-shadow: 2px -2px #00ff00, -2px 2px #fff;
+  }
+  75% {
+    text-shadow: -2px 2px #00ff00, 2px -2px #fff;
+  }
+  100% {
+    text-shadow: 2px 2px #00ff00, -2px -2px #fff;
+  }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+/* Scanline Effect - Disabled */
+
+/* Code Block Style */
+.code-block {
+  background: rgba(0, 20, 0, 0.8);
+  border-left: 3px solid #00ff00;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-block::before {
+  content: '> ';
+  color: #00ff00;
+  font-weight: bold;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-green {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Matrix Rain Drops */
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.matrix-drop {
+  position: absolute;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  animation: matrix-rain 10s linear infinite;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+/* Button Styles */
+.hacker-btn {
+  background: rgba(0, 255, 0, 0.05);
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.hacker-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.hacker-btn:hover::before {
+  left: 100%;
+}
+
+.hacker-btn:hover {
+  background: #00ff00;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 30px rgba(0, 255, 0, 1),
+    0 0 50px rgba(0, 255, 0, 0.6),
+    inset 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
+/* Secondary Button - White */
+.hacker-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.hacker-btn-secondary:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 30px rgba(255, 255, 255, 0.8),
+    0 0 50px rgba(255, 255, 255, 0.4);
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Hexagon Badge */
+.hex-badge {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid #00ff00;
+}
+
+/* Terminal Prompt */
+.terminal-prompt::before {
+  content: '$ ';
+  color: #00ff00;
+  font-weight: bold;
+}
+
+/* Skills Tag */
+.skill-tag {
+  background: rgba(0, 255, 0, 0.08);
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.skill-tag:hover {
+  background: rgba(0, 255, 0, 0.2);
+  border-color: #00ff00;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 0 15px rgba(0, 255, 0, 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ASCII Art Effect */
+.ascii-art {
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+  line-height: 1;
+  white-space: pre;
+  font-size: 10px;
+}
+
+/* Flicker Effect */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  41%, 43% {
+    opacity: 0.8;
+  }
+  45%, 47% {
+    opacity: 0.9;
+  }
+}
+
+.flicker {
+  animation: flicker 3s infinite;
+}
+
+/* Data Stream Effect */
+@keyframes data-stream {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+.data-stream {
+  animation: data-stream 2s ease-in-out infinite;
+}
+
+/* Binary Rain */
+@keyframes binary-rain {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.binary-bg::before {
+  content: '01001000 01000001 01000011 01001011 01000101 01010010';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: rgba(0, 255, 0, 0.05);
+  word-wrap: break-word;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Neon Border Pulse */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5),
+                0 0 10px rgba(0, 255, 0, 0.3),
+                0 0 15px rgba(0, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8),
+                0 0 20px rgba(0, 255, 0, 0.5),
+                0 0 30px rgba(0, 255, 0, 0.3);
+  }
+}
+
+.neon-border {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Terminal Cursor */
+@keyframes cursor-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor::after {
+  content: '█';
+  animation: cursor-blink 1s infinite;
+  color: #00ff00;
+}
+
+/* Hologram Effect */
+@keyframes hologram {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(0, 255, 0, 0.8),
+      0 0 20px rgba(0, 255, 0, 0.5),
+      0 0 30px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 5px rgba(0, 255, 0, 0.6),
+      0 0 10px rgba(0, 255, 0, 0.4),
+      0 0 15px rgba(0, 255, 0, 0.2);
+  }
+}
+
+.hologram {
+  animation: hologram 3s ease-in-out infinite;
+}
+
+/* Boot Text Animation */
+@keyframes boot-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.boot-text {
+  animation: boot-text 0.05s steps(1);
+}
+
+/* Screen Glow */
+.screen-glow {
+  box-shadow:
+    inset 0 0 50px rgba(0, 255, 0, 0.05),
+    0 0 50px rgba(0, 255, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .matrix-drop {
+    font-size: 12px;
+  }
+
+  .hacker-btn {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; background: #000; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="630"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Background gradient
+        const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+        gradient.addColorStop(0, '#000000');
+        gradient.addColorStop(0.5, '#001a00');
+        gradient.addColorStop(1, '#000000');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 1200, 630);
+        
+        // Grid pattern
+        ctx.strokeStyle = 'rgba(0, 255, 0, 0.1)';
+        ctx.lineWidth = 1;
+        for(let i = 0; i < 1200; i += 40) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, 630);
+            ctx.stroke();
+        }
+        for(let i = 0; i < 630; i += 40) {
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(1200, i);
+            ctx.stroke();
+        }
+        
+        // Icon - Invoice document
+        ctx.strokeStyle = '#00ff00';
+        ctx.lineWidth = 4;
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.1)';
+        
+        // Document outline
+        ctx.beginPath();
+        ctx.rect(100, 150, 300, 350);
+        ctx.fill();
+        ctx.stroke();
+        
+        // Document lines
+        ctx.lineWidth = 2;
+        for(let i = 0; i < 5; i++) {
+            ctx.beginPath();
+            ctx.moveTo(130, 200 + i * 50);
+            ctx.lineTo(370, 200 + i * 50);
+            ctx.stroke();
+        }
+        
+        // AI Brain icon
+        ctx.beginPath();
+        ctx.arc(850, 315, 120, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Neural connections
+        ctx.lineWidth = 2;
+        const points = [
+            [750, 250], [950, 250], [750, 380], [950, 380],
+            [800, 200], [900, 200], [800, 430], [900, 430]
+        ];
+        points.forEach(point => {
+            ctx.beginPath();
+            ctx.arc(point[0], point[1], 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(point[0], point[1]);
+            ctx.lineTo(850, 315);
+            ctx.strokeStyle = 'rgba(0, 255, 0, 0.3)';
+            ctx.stroke();
+            ctx.strokeStyle = '#00ff00';
+        });
+        
+        // Center node
+        ctx.beginPath();
+        ctx.arc(850, 315, 15, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ff00';
+        ctx.fill();
+        
+        // Title
+        ctx.fillStyle = '#00ff00';
+        ctx.font = 'bold 48px "Courier New", monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('INVOICE PROCESSING', 600, 80);
+        ctx.fillText('SPECIALIST AGENT', 600, 130);
+        
+        // Subtitle
+        ctx.font = '28px "Courier New", monospace';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText('AI-Powered Autonomous Invoice Automation', 600, 560);
+        
+        // Stats
+        ctx.font = 'bold 24px "Courier New", monospace';
+        ctx.fillStyle = '#00ff00';
+        ctx.fillText('96% Time Reduction | $483K+ Annual Savings', 600, 600);
+        
+        // Tech stack badges
+        const techs = ['Python', 'Gemini 2.0', 'LangChain', 'UiPath'];
+        techs.forEach((tech, i) => {
+            const x = 200 + i * 220;
+            const y = 520;
+            ctx.strokeStyle = '#00ff00';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(x - 80, y - 25, 160, 40);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '18px "Courier New", monospace';
+            ctx.fillText(tech, x, y + 5);
+        });
+        
+        console.log('Image generated successfully');
+    </script>
+</body>
+</html>
