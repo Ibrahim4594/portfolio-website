@@ -291,27 +291,6 @@ export default function Home() {
             <div className="w-32 h-1 bg-gradient-to-r from-[#00ff00] to-transparent glow-green rounded-full"></div>
           </div>
 
-          {/* Intro Video Section */}
-          <div className="mb-16 flex justify-center">
-            <div className="hacker-card p-2 w-full max-w-sm">
-              <div className="relative aspect-video w-full overflow-hidden rounded-md border-2 border-[#00ff00]/30">
-                <video
-                  src="/intro.mov"
-                  className="w-full h-full object-cover"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster="/profile-pic.jpg"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div className="text-center mt-2">
-                <p className="text-xs text-[#00ff00] font-mono">{'>'} INTRO.mov</p>
-              </div>
-            </div>
-          </div>
-
           <div className="grid lg:grid-cols-2 gap-16 mb-24">
             <div className="flex items-center justify-center">
               <div className="w-80 h-80 rounded-full terminal-border neon-border bg-black flex items-center justify-center overflow-hidden relative">
@@ -345,6 +324,27 @@ export default function Home() {
                   <p>{'>'} <span className="terminal-text">Senior Ambassador & Instructor</span> — UTech</p>
                   <p>{'>'} <span className="terminal-text">Gold Medalist</span> — Taekwondo Championship</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Intro Video Section - Mobile Frame */}
+          <div className="mb-20 flex justify-center">
+            <div className="hacker-card p-3 w-full max-w-xs">
+              <div className="relative aspect-[9/16] w-full overflow-hidden rounded-3xl border-4 border-[#00ff00]/40 bg-black shadow-[0_0_30px_rgba(0,255,0,0.3)]">
+                <video
+                  src="/intro.mov"
+                  className="w-full h-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/profile-pic.jpg"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="text-center mt-3">
+                <p className="text-xs text-[#00ff00] font-mono">{'>'} INTRO.mov</p>
               </div>
             </div>
           </div>
