@@ -291,6 +291,27 @@ export default function Home() {
             <div className="w-32 h-1 bg-gradient-to-r from-[#00ff00] to-transparent glow-green rounded-full"></div>
           </div>
 
+          {/* Intro Video Section */}
+          <div className="mb-16">
+            <div className="hacker-card p-2 max-w-4xl mx-auto">
+              <div className="relative aspect-video w-full overflow-hidden rounded-md border-2 border-[#00ff00]/30">
+                <video
+                  src="/intro.mov"
+                  className="w-full h-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/profile-pic.jpg"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="text-center mt-4">
+                <p className="text-sm text-[#00ff00] font-mono">{'>'} INTRODUCTION_VIDEO.mov</p>
+              </div>
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-16 mb-24">
             <div className="flex items-center justify-center">
               <div className="w-80 h-80 rounded-full terminal-border neon-border bg-black flex items-center justify-center overflow-hidden relative">
