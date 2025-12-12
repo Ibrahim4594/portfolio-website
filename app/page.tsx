@@ -77,7 +77,7 @@ export default function Home() {
       title: "FINALIST_UNITED_NATIONS_SDG_3",
       images: [
         "/gallery/un (2nd).jpg",
-        "/gallery/sdg3 final.png",
+        "/gallery/new32.jpg",
       ],
     },
     {
