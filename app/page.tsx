@@ -292,8 +292,8 @@ export default function Home() {
           </div>
 
           {/* Intro Video Section */}
-          <div className="mb-16">
-            <div className="hacker-card p-2 max-w-4xl mx-auto">
+          <div className="mb-16 flex justify-center">
+            <div className="hacker-card p-2 w-full max-w-sm">
               <div className="relative aspect-video w-full overflow-hidden rounded-md border-2 border-[#00ff00]/30">
                 <video
                   src="/intro.mov"
@@ -306,8 +306,8 @@ export default function Home() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="text-center mt-4">
-                <p className="text-sm text-[#00ff00] font-mono">{'>'} INTRODUCTION_VIDEO.mov</p>
+              <div className="text-center mt-2">
+                <p className="text-xs text-[#00ff00] font-mono">{'>'} INTRO.mov</p>
               </div>
             </div>
           </div>
