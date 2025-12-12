@@ -361,8 +361,8 @@ export default function Home() {
                     className="w-full h-full object-cover"
                     controls
                     playsInline
-                    preload="metadata"
-                    poster="/profile-pic.jpg"
+                    preload="none"
+                    poster="/preview.jpg"
                   >
                     Your browser does not support the video tag.
                   </video>
