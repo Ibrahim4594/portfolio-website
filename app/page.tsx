@@ -5,6 +5,8 @@ import MatrixRain from '@/components/MatrixRain';
 import TypingEffect from '@/components/TypingEffect';
 import BootSequence from '@/components/BootSequence';
 import SystemStats from '@/components/SystemStats';
+import NeuralLink3D from '@/components/NeuralLink3D';
+import InteractiveTerminal from '@/components/InteractiveTerminal';
 
 export default function Home() {
   const skills = [
@@ -209,6 +211,9 @@ export default function Home() {
       {/* Matrix Rain Background - Global */}
       <MatrixRain />
 
+      {/* Interactive Terminal */}
+      <InteractiveTerminal />
+
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen hacker-section flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-[2]"></div>
@@ -329,7 +334,31 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          {/* Neural Link 3D Interface */}
+          <NeuralLink3D />
+
+          {/* Intro Video Section - Mobile Frame */}
+          <div className="mt-20 flex justify-center">
+            <div className="hacker-card p-3 w-full max-w-xs">
+              <div className="relative aspect-[9/16] w-full overflow-hidden rounded-3xl border-4 border-[#00ff00]/40 bg-black shadow-[0_0_30px_rgba(0,255,0,0.3)]">
+                <video
+                  src="/intro.mov"
+                  className="w-full h-full object-cover"
+                  controls
+                  playsInline
+                  preload="none"
+                  poster="/preview.jpg"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="text-center mt-3">
+                <p className="text-xs text-[#00ff00] font-mono">{'>'} INTRO.mov</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-20">
             <h3 className="text-3xl font-bold text-white mb-12 font-mono">
               <span className="terminal-text">SKILLS</span> <span className="text-white/60">&&</span> <span className="terminal-text">TECH_STACK</span>
             </h3>
@@ -350,27 +379,6 @@ export default function Home() {
                   </ul>
                 </div>
               ))}
-            </div>
-
-            {/* Intro Video Section - Mobile Frame */}
-            <div className="mt-20 flex justify-center">
-              <div className="hacker-card p-3 w-full max-w-xs">
-                <div className="relative aspect-[9/16] w-full overflow-hidden rounded-3xl border-4 border-[#00ff00]/40 bg-black shadow-[0_0_30px_rgba(0,255,0,0.3)]">
-                  <video
-                    src="/intro.mov"
-                    className="w-full h-full object-cover"
-                    controls
-                    playsInline
-                    preload="none"
-                    poster="/preview.jpg"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div className="text-center mt-3">
-                  <p className="text-xs text-[#00ff00] font-mono">{'>'} INTRO.mov</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
